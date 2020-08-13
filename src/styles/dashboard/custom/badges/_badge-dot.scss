@@ -1,0 +1,41 @@
+//
+// Dot badge
+//
+
+// General styles
+
+.badge-dot {
+	background: transparent;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-normal;
+	padding-left: 0;
+	padding-right: 0;
+	text-transform: none;
+
+	strong {
+		color: $gray-800;
+	}
+
+	i {
+		border-radius: 50%;
+		display: inline-block;
+		height: 0.375rem;
+		margin-right: 0.375rem;
+		vertical-align: middle;
+		width: 0.375rem;
+	}
+
+	&.badge-md {
+		i {
+			height: 0.5rem;
+			width: 0.5rem;
+		}
+	}
+
+	&.badge-lg {
+		i {
+			height: 0.625rem;
+			width: 0.625rem;
+		}
+	}
+}

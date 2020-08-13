@@ -1,0 +1,112 @@
+//
+// Main navbar
+//
+.ct-navbar {
+	background-color: $ct-primary;
+	box-shadow: rgba(116, 129, 141, 0.1) 0 1px 1px 0;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+
+	@include media-breakpoint-down(md) {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+
+		.navbar-nav-scroll {
+			font-size: 0.875rem;
+			height: 2.5rem;
+			margin-top: 0.25rem;
+			max-width: 100%;
+			overflow: hidden;
+
+			.navbar-nav {
+				-webkit-overflow-scrolling: touch;
+				overflow-x: auto;
+				padding-bottom: 2rem;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		@supports (position: sticky) {
+			position: sticky;
+			top: 0;
+			z-index: 1071; // over everything in bootstrap
+		}
+	}
+
+	.navbar-nav {
+		.nav-link {
+			color: $ct-primary-light !important;
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+
+			&.active,
+			&:hover {
+				background-color: transparent !important;
+				color: #fff !important;
+			}
+
+			&.active {
+				font-weight: 500;
+			}
+		}
+	}
+
+	.navbar-nav-svg {
+		display: inline-block;
+		height: 1rem;
+		vertical-align: text-top;
+		width: 1rem;
+	}
+
+	.dropdown-menu {
+		font-size: 0.875rem;
+	}
+
+	.dropdown-item.active {
+		background-color: transparent;
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23292b2c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");
+		background-position: 0.4rem 0.87rem;
+		background-repeat: no-repeat;
+		background-size: 0.75rem 0.75rem;
+		color: $gray-900;
+		font-weight: 500;
+		padding-left: 25px;
+	}
+}
+
+// Github corner
+.github-corner {
+	position: fixed;
+	right: 0;
+	z-index: 1080;
+
+	&:hover {
+		.octo-arm {
+			animation: octocat-wave 560ms ease-in-out;
+		}
+	}
+
+	svg {
+		color: $ct-primary;
+		fill: $white;
+	}
+}
+
+@keyframes octocat-wave {
+	0%,
+	100% {
+		transform: rotate(0);
+	}
+
+	20%,
+	60% {
+		transform: rotate(-25deg);
+	}
+
+	40%,
+	80% {
+		transform: rotate(10deg);
+	}
+}

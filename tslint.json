@@ -1,0 +1,46 @@
+{
+	"extends": "tslint:latest",
+	"rules": {
+		"typedef": [
+			true,
+			"call-signature",
+			"arrow-call-signature",
+			"parameter",
+			"arrow-parameter",
+			"property-declaration",
+			"variable-declaration",
+			"variable-declaration-ignore-function",
+			"member-variable-declaration",
+			"object-destructuring",
+			"array-destructuring"
+		],
+		"member-access": true,
+		"member-ordering": [
+			true,
+			{
+				"order": [
+					"public-static-field",
+					"protected-static-field",
+					"private-static-field",
+					"instance-field",
+					"public-constructor",
+					"protected-constructor",
+					"private-constructor",
+					"public-instance-method",
+					"protected-instance-method",
+					"private-instance-method"
+				]
+			}
+		],
+		"no-bitwise": false,
+		"no-implicit-dependencies": false,
+		"no-submodule-imports": false,
+		"no-console": false,
+		"no-namespace": false,
+		//    "no-any": true,
+		"max-classes-per-file": [true, 2]
+	},
+	"jsRules": {
+		"no-console": false
+	}
+}

@@ -1,0 +1,70 @@
+//
+// Form validation
+//
+
+// Validation
+
+.has-success,
+.has-danger {
+	position: relative;
+
+	&::after {
+		border-radius: 50%;
+		display: inline-block;
+		font-family: 'NucleoIcons';
+		font-size: 9px;
+		height: 19px;
+		line-height: 19px;
+		opacity: 1;
+		position: absolute;
+		right: 15px;
+		text-align: center;
+		top: 2px;
+		transform: translateY(50%);
+		width: 19px;
+	}
+}
+
+.has-success {
+	&::after {
+		background-color: $form-feedback-valid-bg;
+		color: daken($form-feedback-valid-color, 18%);
+		content: '\ea26';
+	}
+
+	.form-control {
+		background-color: $input-focus-bg;
+
+		&:focus {
+			border-color: $input-focus-border-color;
+		}
+
+		// Placeholder
+
+		&::placeholder {
+			color: $form-feedback-valid-color;
+		}
+	}
+}
+
+.has-danger {
+	&::after {
+		background-color: $form-feedback-invalid-bg;
+		color: daken($form-feedback-invalid-color, 18%);
+		content: '\ea53';
+	}
+
+	.form-control {
+		background-color: $input-focus-bg;
+
+		&:focus {
+			border-color: $input-focus-border-color;
+		}
+
+		// Placeholder
+
+		&::placeholder {
+			color: $form-feedback-invalid-color;
+		}
+	}
+}

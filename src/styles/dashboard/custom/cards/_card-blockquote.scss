@@ -1,0 +1,17 @@
+//
+// Card with blockquote
+//
+
+.card-blockquote {
+	padding: 2rem;
+	position: relative;
+
+	.svg-bg {
+		display: block;
+		height: 95px;
+		left: 0;
+		position: absolute;
+		top: -94px;
+		width: 100%;
+	}
+}

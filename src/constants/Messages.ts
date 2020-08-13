@@ -1,0 +1,17 @@
+export const INVALID_RESPONSE: string = 'Invalid Response';
+export const INVALID_ACCESS: string = 'Invalid Access';
+export const INVALID_POSITION: string = 'Invalid Position';
+export const INVALID_ID: string = 'Invalid ID';
+export const INVALID_IP: string = 'Invalid IP';
+export const INVALID_LATITUDE: string = 'Invalid Latitude';
+export const INVALID_LONGITUDE: string = 'Invalid Longitude';
+export const INVALID_LATITUDE_LONGITUDE: string = 'Invalid Latitude/Longitude';
+export const INVALID_NAME: string = 'Invalid name';
+export const INVALID_EMAIL: string = 'Invalid email';
+export const INVALID_SUBJECT: string = 'Invalid subject';
+export const INVALID_MESSAGE: string = 'Invalid message';
+export const INVALID_FIRST_NAME: string = 'Invalid First Name';
+export const INVALID_LAST_NAME: string = 'Invalid Last Name';
+export const INVALID_PASSWORD: string = 'Invalid password';
+export const INVALID_PASSWORD_CONFIRM: string = 'Password and confirm password does not match';
+export const INVALID_EMAIL_OR_PASSWORD: string = 'Invalid email or password';

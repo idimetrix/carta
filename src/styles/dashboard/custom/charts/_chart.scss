@@ -1,0 +1,65 @@
+//
+// Chart
+//
+
+.chart {
+	height: $chart-height;
+	position: relative;
+}
+
+// Size variations
+
+.chart-sm {
+	height: $chart-height-sm;
+}
+
+// Legend
+
+.chart-legend {
+	color: $chart-legend-color;
+	display: flex;
+	font-size: $chart-legend-font-size;
+	justify-content: center;
+	margin-top: $chart-legend-margin-top;
+	text-align: center;
+}
+
+.chart-legend-item {
+	align-items: center;
+	display: inline-flex;
+
+	+ .chart-legend-item {
+		margin-left: 1rem;
+	}
+}
+
+.chart-legend-indicator {
+	border-radius: 50%;
+	display: inline-block;
+	height: 0.5rem;
+	margin-right: 0.375rem;
+	width: 0.5rem;
+}
+
+// Tooltip
+
+#chart-tooltip {
+	z-index: 0;
+
+	.arrow {
+		left: 50%;
+		top: 100%;
+		transform: translateX(-50%) translateX(-0.5rem);
+	}
+}
+
+// Chart info overlay
+
+.chart-info-overlay {
+	left: 5%;
+	max-width: 350px;
+	padding: 20px;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}

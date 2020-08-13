@@ -1,0 +1,186 @@
+// General
+
+.btn {
+	font-size: $input-btn-font-size;
+	letter-spacing: $btn-letter-spacing;
+	position: relative;
+	text-transform: $btn-text-transform;
+	will-change: transform;
+
+	&:hover {
+		@include box-shadow($btn-hover-box-shadow);
+		transform: translateY(-1px);
+	}
+
+	&:not(:last-child) {
+		margin-right: 0.5rem;
+	}
+}
+
+.btn-group,
+.input-group {
+	.btn {
+		margin-right: 0;
+		transform: translateY(0);
+	}
+}
+
+// Sizes
+
+.btn-sm {
+	font-size: $input-btn-font-size-sm;
+
+	&.btn-icon-only {
+		height: 35px;
+		width: 35px;
+	}
+
+	.btn-inner--icon {
+		font-size: 0.5rem;
+	}
+}
+
+.btn-lg {
+	&.btn-icon-only {
+		height: 52px;
+		width: 52px;
+	}
+
+	.btn-inner--icon {
+		font-size: 1.2rem;
+		position: relative;
+		top: 2px;
+	}
+}
+
+// Fixes
+
+[class*='btn-outline-'] {
+	border-width: 1px;
+}
+
+.btn-outline-secondary {
+	color: darken(theme-color('secondary'), 50%);
+}
+
+.btn-inner--icon {
+	i:not(.fa) {
+		position: relative;
+	}
+}
+
+.btn-link {
+	box-shadow: none;
+	font-weight: $btn-font-weight;
+
+	&:hover {
+		box-shadow: none;
+		transform: none;
+	}
+
+	&.text-secondary {
+		color: darken(theme-color('secondary'), 50%) !important;
+	}
+}
+
+.btn-neutral {
+	color: theme-color('primary');
+}
+
+// Icons
+
+.btn svg:not(:first-child),
+.btn i:not(:first-child) {
+	margin-left: 0.5rem;
+}
+
+.btn svg:not(:last-child),
+.btn i:not(:last-child) {
+	margin-right: 0.5rem;
+}
+
+// Icon labels
+
+.btn-icon-label {
+	position: relative;
+
+	.btn-inner--icon {
+		background-color: rgba(0, 0, 0, 0.1);
+		border-radius: 0;
+		height: 100%;
+		line-height: 1;
+		margin: 0;
+		position: absolute;
+		text-align: center;
+		width: 3em;
+	}
+
+	.btn-inner--icon:not(:first-child) {
+		border-bottom-right-radius: inherit;
+		border-top-right-radius: inherit;
+		right: 0;
+		top: 0;
+	}
+
+	.btn-inner--icon:not(:last-child) {
+		border-bottom-left-radius: inherit;
+		border-top-left-radius: inherit;
+		left: 0;
+		top: 0;
+	}
+
+	.btn-inner--icon svg {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.btn-inner--text:not(:first-child) {
+		padding-left: 3em;
+	}
+
+	.btn-inner--text:not(:last-child) {
+		padding-right: 3em;
+	}
+}
+
+// Icons
+
+.btn-icon {
+	.btn-inner--icon {
+		img {
+			width: 20px;
+		}
+	}
+
+	.btn-inner--text:not(:first-child) {
+		margin-left: 0.75em;
+	}
+
+	.btn-inner--text:not(:last-child) {
+		margin-right: 0.75em;
+	}
+}
+
+.btn-icon-only {
+	height: 2.375rem;
+	padding: 0;
+	width: 2.375rem;
+}
+
+a.btn-icon-only {
+	line-height: 2.5;
+}
+
+.btn-icon-only.btn-sm {
+	height: 2rem;
+	width: 2rem;
+}
+
+// Brand buttons
+
+@each $color, $value in $brand-colors {
+	.btn-#{$color} {
+		@include button-variant($value, $value);
+	}
+}

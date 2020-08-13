@@ -1,0 +1,50 @@
+//
+// Heading
+//
+
+// General styles
+
+.heading {
+	font-size: $heading-font-size;
+	font-weight: $heading-font-weight;
+	letter-spacing: $heading-letter-spacing;
+	text-transform: $heading-text-transform;
+}
+
+// Heading variations
+
+.heading-small {
+	font-size: 0.75rem;
+	letter-spacing: 0.04em;
+	padding-bottom: 0.25rem;
+	padding-top: 0.25rem;
+	text-transform: uppercase;
+}
+
+.heading-title {
+	font-size: $heading-title-font-size;
+	font-weight: $heading-title-font-weight;
+	letter-spacing: $heading-title-letter-spacing;
+	text-transform: $heading-title-text-transform;
+}
+
+.heading-section {
+	font-size: $heading-section-font-size;
+	font-weight: $heading-section-font-weight;
+	letter-spacing: $heading-section-letter-spacing;
+	text-transform: $heading-section-text-transform;
+
+	img {
+		display: block;
+		height: 72px;
+		margin-bottom: 1.5rem;
+		width: 72px;
+	}
+
+	&.text-center {
+		img {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}

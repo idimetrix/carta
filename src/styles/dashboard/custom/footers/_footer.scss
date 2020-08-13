@@ -1,0 +1,94 @@
+//
+// Footer
+//
+
+// General styles
+
+.footer {
+	background: $footer-bg;
+	padding: $footer-padding-y $footer-padding-x;
+
+	.col-footer {
+		.heading {
+			color: $footer-heading-color;
+			font-size: $footer-heading-font-size;
+			font-weight: $font-weight-bold;
+			letter-spacing: 0;
+			margin-bottom: 1rem;
+			text-transform: uppercase;
+		}
+	}
+
+	.nav .nav-item .nav-link,
+	.footer-link {
+		color: $footer-link-color !important;
+
+		&:hover {
+			color: $footer-link-hover-color !important;
+		}
+	}
+
+	.list-unstyled li a {
+		color: $footer-link-color;
+		display: inline-block;
+		font-size: $footer-link-font-size;
+		padding: 0.125rem 0;
+
+		&:hover {
+			color: $footer-link-hover-color;
+		}
+	}
+
+	.copyright {
+		font-size: $font-size-sm;
+	}
+}
+
+// Dark footer
+
+.footer-dark {
+	.col-footer .heading {
+		color: $white;
+	}
+}
+
+// Footer nav used for copyright and some links, but not limited to this
+
+.nav-footer {
+	.nav-link {
+		font-size: $font-size-sm;
+	}
+
+	.nav-item:last-child {
+		.nav-link {
+			padding-right: 0;
+		}
+	}
+}
+
+// Footer with cards over
+
+.footer.has-cards {
+	background: transparent;
+	margin-top: -420px;
+	overflow: hidden;
+	padding-top: 500px;
+	pointer-events: none;
+	position: relative;
+
+	&::before {
+		background: theme-color('secondary');
+		content: '';
+		height: 2000px;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 600px;
+		transform: skew(0, -8deg);
+	}
+
+	.container {
+		pointer-events: auto;
+		position: relative;
+	}
+}

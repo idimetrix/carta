@@ -1,0 +1,522 @@
+// stylelint-disable no-duplicate-selectors, selector-no-qualifying-type
+
+//
+// Grid examples
+//
+
+.ct-example-row {
+	.row {
+		> .col,
+		> [class^='col-'] {
+			span {
+				background-color: rgb(255, 255, 255);
+				border-radius: 0.25rem;
+				box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 1px, rgba(0, 0, 0, 0.1) 0 4px 16px;
+				color: rgb(57, 63, 73);
+				display: block;
+				font-size: $font-size-sm;
+				margin: 1rem 0;
+				padding: 0.75rem;
+			}
+		}
+	}
+
+	.no-gutters {
+		> .col,
+		> [class^='col-'] {
+			span {
+				border-radius: 0;
+			}
+		}
+	}
+
+	.flex-items-top,
+	.flex-items-middle,
+	.flex-items-bottom {
+		background-color: rgba(255, 0, 0, 0.1);
+		min-height: 6rem;
+	}
+}
+
+.ct-example-row-flex-cols .row {
+	background-color: rgba(255, 0, 0, 0.1);
+	min-height: 10rem;
+
+	+ .row {
+		margin-top: 1rem;
+	}
+}
+
+.ct-highlight {
+	background-color: rgba($ct-primary, 0.15);
+	border: 1px solid rgba($ct-primary, 0.15);
+}
+
+// Grid mixins
+.example-container {
+	@include make-container();
+	width: 800px;
+}
+
+.example-row {
+	@include make-row();
+}
+
+.example-content-main {
+	@include make-col-ready();
+
+	@include media-breakpoint-up(sm) {
+		@include make-col(6);
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include make-col(8);
+	}
+}
+
+.example-content-secondary {
+	@include make-col-ready();
+
+	@include media-breakpoint-up(sm) {
+		@include make-col(6);
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include make-col(4);
+	}
+}
+
+//
+// Container illustrations
+//
+
+.ct-example-container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 25rem;
+	min-width: 16rem;
+}
+
+.ct-example-container-header {
+	background-color: lighten($blue, 50%);
+	border-radius: 0.25rem;
+	height: 3rem;
+	margin-bottom: 0.5rem;
+}
+
+.ct-example-container-sidebar {
+	background-color: lighten($blue, 25%);
+	border-radius: 0.25rem;
+	float: right;
+	height: 8rem;
+	width: 4rem;
+}
+
+.ct-example-container-body {
+	background-color: lighten($ct-primary, 25%);
+	border-radius: 0.25rem;
+	height: 8rem;
+	margin-right: 4.5rem;
+}
+
+.ct-example-container-fluid {
+	max-width: none;
+}
+
+//
+// Docs examples
+//
+
+.ct-example {
+	@include clearfix();
+	margin: 1rem (-$grid-gutter-width / 2) 0;
+	position: relative;
+
+	@include media-breakpoint-up(sm) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	+ .highlight,
+	+ .clipboard + .highlight {
+		margin-top: 0;
+	}
+
+	+ p {
+		margin-top: 2rem;
+	}
+
+	.pos-f-t {
+		margin: -1rem;
+		position: relative;
+
+		@include media-breakpoint-up(sm) {
+			margin: -1.5rem;
+		}
+	}
+
+	.custom-file-input:lang(es) ~ .custom-file-label::after {
+		content: 'Elegir';
+	}
+
+	> .form-control {
+		+ .form-control {
+			margin-top: 0.5rem;
+		}
+	}
+
+	> .nav + .nav,
+	> .alert + .alert,
+	> .navbar + .navbar,
+	> .progress + .progress,
+	> .progress + .btn,
+	.badge,
+	.btn {
+		margin-bottom: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.btn-group {
+		margin-bottom: 0.5rem;
+		margin-top: 0.5rem;
+
+		.btn {
+			margin: 0;
+		}
+	}
+
+	.alert {
+		margin: 0;
+
+		+ .alert {
+			margin-top: 1.25rem;
+		}
+	}
+
+	.badge {
+		margin-right: 0.5rem;
+	}
+
+	> .dropdown-menu:first-child {
+		display: block;
+		position: static;
+	}
+
+	> .form-group:last-child {
+		margin-bottom: 0;
+	}
+
+	> .close {
+		float: none;
+	}
+}
+
+// Typography
+.ct-example-type {
+	.table {
+		.type-info {
+			color: #999;
+			vertical-align: middle;
+		}
+
+		td {
+			border-color: #eee;
+			padding: 1rem 0;
+		}
+
+		tr:first-child td {
+			border-top: 0;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}
+
+// Contextual background colors
+.ct-example-bg-classes p {
+	padding: 1rem;
+}
+
+// Images
+.ct-example > img {
+	+ img {
+		margin-left: 0.5rem;
+	}
+}
+
+// Buttons
+.ct-example {
+	> .btn-group {
+		margin-bottom: 0.25rem;
+		margin-top: 0.25rem;
+	}
+
+	> .btn-toolbar + .btn-toolbar {
+		margin-top: 0.5rem;
+	}
+}
+
+// Forms
+.ct-example-control-sizing select,
+.ct-example-control-sizing input[type='text'] + input[type='text'] {
+	margin-top: 0.5rem;
+}
+
+.ct-example-form .input-group {
+	margin-bottom: 0.5rem;
+}
+
+.ct-example > textarea.form-control {
+	resize: vertical;
+}
+
+// List groups
+.ct-example > .list-group {
+	max-width: 400px;
+}
+
+// Navbars
+.ct-example {
+	@include media-breakpoint-up(sm) {
+		.fixed-top,
+		.sticky-top {
+			margin: -1.5rem -1.5rem 1rem;
+		}
+
+		.fixed-bottom {
+			margin: 1rem -1.5rem -1.5rem;
+		}
+	}
+
+	.fixed-top,
+	.sticky-top {
+		margin: -1rem -1rem 1rem;
+		position: static;
+	}
+
+	.fixed-bottom {
+		margin: 1rem -1rem -1rem;
+		position: static;
+	}
+}
+
+// Pagination
+.ct-example .pagination {
+	margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+// Example modals
+.modal {
+	z-index: 1072;
+
+	.tooltip,
+	.popover {
+		z-index: 1073;
+	}
+}
+
+.modal-backdrop {
+	z-index: 1071;
+}
+
+.ct-example-modal {
+	background-color: #fafafa;
+
+	.modal {
+		bottom: auto;
+		display: block;
+		left: auto;
+		position: relative;
+		right: auto;
+		top: auto;
+		z-index: 1;
+	}
+
+	.modal-dialog {
+		left: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Example tabbable tabs
+.ct-example-tabs .nav-tabs {
+	margin-bottom: 1rem;
+}
+
+// Popovers
+.ct-example-popover-static {
+	background-color: #f9f9f9;
+	padding-bottom: 1.5rem;
+
+	.popover {
+		display: block;
+		float: left;
+		margin: 1.25rem;
+		position: relative;
+		width: 260px;
+	}
+}
+
+// Tooltips
+.tooltip-demo a {
+	white-space: nowrap;
+}
+
+.ct-example-tooltip-static .tooltip {
+	display: inline-block;
+	margin: 10px 20px;
+	opacity: 1;
+	position: relative;
+}
+
+// Scrollspy demo on fixed height div
+.scrollspy-example {
+	height: 200px;
+	margin-top: 0.5rem;
+	overflow: auto;
+	position: relative;
+}
+
+.scrollspy-example-2 {
+	height: 350px;
+	overflow: auto;
+	position: relative;
+}
+
+.ct-example-border-utils {
+	[class^='border'] {
+		background-color: #f5f5f5;
+		display: inline-block;
+		height: 5rem;
+		margin: 0.25rem;
+		width: 5rem;
+	}
+}
+
+.ct-example-border-utils-0 {
+	[class^='border'] {
+		border: 1px solid $border-color;
+	}
+}
+
+//
+// Code snippets
+//
+
+.highlight {
+	margin-top: 1rem;
+	//margin-bottom: 3rem;
+	//background-color: $gray-100;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	padding: 0;
+
+	@include media-breakpoint-up(sm) {
+		padding: 0;
+	}
+}
+
+.ct-content .highlight {
+	margin-left: (-$grid-gutter-width / 2);
+	margin-right: (-$grid-gutter-width / 2);
+
+	@include media-breakpoint-up(sm) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+//
+// Component-Code tabs
+//
+
+.ct-example {
+	border-bottom: 1px solid $gray-200;
+	margin-bottom: 2rem;
+	padding-bottom: 2rem;
+
+	.tab-content {
+		.tab-example-result {
+			background-color: #f5f7f9;
+			border: 1px solid #e6ecf1;
+			border-radius: 0.25rem;
+			padding: 1.25rem;
+		}
+	}
+
+	.nav-tabs-code {
+		margin-bottom: 0.375rem;
+
+		.nav-link {
+			font-size: 0.875rem;
+
+			&:active,
+			&.active {
+				color: $ct-primary;
+			}
+		}
+	}
+}
+
+// Icon examples
+.icon-examples {
+	margin-top: 1rem;
+}
+
+.btn-icon-clipboard {
+	appearance: none;
+	background-color: rgb(248, 249, 250);
+	border: 0 none;
+	border-radius: 4px;
+	color: rgb(57, 63, 73);
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.25;
+	margin: 0.5rem 0;
+	padding: 24px;
+	text-align: left;
+	text-decoration: none;
+	vertical-align: middle;
+	width: 100%;
+
+	&:hover {
+		background-color: rgb(255, 255, 255);
+		box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 1px, rgba(0, 0, 0, 0.1) 0 4px 16px;
+	}
+
+	> div {
+		align-items: center;
+		display: flex;
+	}
+
+	i {
+		box-sizing: content-box;
+		color: rgb(57, 63, 73);
+		font-size: 1.5rem;
+		vertical-align: middle;
+	}
+
+	span {
+		color: rgb(57, 63, 73);
+		display: inline-block;
+		font-size: 0.875rem;
+		line-height: 1.5;
+		margin-left: 16px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+}

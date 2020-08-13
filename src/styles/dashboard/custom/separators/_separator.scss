@@ -1,0 +1,53 @@
+//
+// Separator
+// add svg on top or bottom of a section for a more stylish visual
+//
+
+.separator {
+	height: 150px;
+	left: 0;
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	top: auto;
+	transform: translateZ(0);
+	width: 100%;
+
+	svg {
+		pointer-events: none;
+		position: absolute;
+	}
+}
+
+.separator-top {
+	bottom: auto;
+	top: 0;
+
+	svg {
+		top: 0;
+	}
+}
+
+.separator-bottom {
+	bottom: 0;
+	top: auto;
+
+	svg {
+		bottom: 0;
+	}
+}
+
+.separator-inverse {
+	transform: rotate(180deg);
+}
+
+// Styles
+
+.separator-skew {
+	height: 60px;
+
+	@include media-breakpoint-up(xl) {
+		height: 70px;
+	}
+}

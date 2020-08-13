@@ -1,0 +1,21 @@
+//
+// Avatar group
+//
+
+// General styles
+
+.avatar-group {
+	.avatar {
+		border: 2px solid $card-bg;
+		position: relative;
+		z-index: 2;
+
+		&:hover {
+			z-index: 3;
+		}
+	}
+
+	.avatar + .avatar {
+		margin-left: -1rem;
+	}
+}

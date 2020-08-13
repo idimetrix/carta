@@ -1,0 +1,66 @@
+@mixin caret-down {
+	border-bottom: 0;
+	border-left: $caret-width solid transparent;
+	border-right: $caret-width solid transparent;
+	border-top: $caret-width solid;
+}
+
+@mixin caret-up {
+	border-bottom: $caret-width solid;
+	border-left: $caret-width solid transparent;
+	border-right: $caret-width solid transparent;
+	border-top: 0;
+}
+
+@mixin caret-right {
+	border-bottom: $caret-width solid transparent;
+	border-left: $caret-width solid;
+	border-right: 0;
+	border-top: $caret-width solid transparent;
+}
+
+@mixin caret-left {
+	border-bottom: $caret-width solid transparent;
+	border-right: $caret-width solid;
+	border-top: $caret-width solid transparent;
+}
+
+@mixin caret($direction: down) {
+	@if $enable-caret {
+		&::after {
+			content: '';
+			display: inline-block;
+			height: 0;
+			margin-left: $caret-width * 0.85;
+			vertical-align: $caret-width * 0.85;
+			width: 0;
+			@if $direction == down {
+				@include caret-down;
+			} @else if $direction == up {
+				@include caret-up;
+			} @else if $direction == right {
+				@include caret-right;
+			}
+		}
+
+		@if $direction == left {
+			&::after {
+				display: none;
+			}
+
+			&::before {
+				@include caret-left;
+				content: '';
+				display: inline-block;
+				height: 0;
+				margin-right: $caret-width * 0.85;
+				vertical-align: $caret-width * 0.85;
+				width: 0;
+			}
+		}
+
+		&:empty::after {
+			margin-left: 0;
+		}
+	}
+}

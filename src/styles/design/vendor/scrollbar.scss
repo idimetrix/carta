@@ -1,0 +1,31 @@
+.scrollbar-inner {
+	height: 100%;
+
+	&:not(:hover) .scroll-element {
+		opacity: 0;
+	}
+
+	.scroll-element {
+		margin-right: 2px;
+		transition: opacity 300ms;
+
+		.scroll-bar,
+		.scroll-element_track {
+			transition: background-color 300ms;
+		}
+
+		.scroll-element_track {
+			background-color: transparent;
+		}
+	}
+
+	.scroll-element.scroll-y {
+		right: 0;
+		width: 3px;
+	}
+
+	.scroll-element.scroll-x {
+		bottom: 0;
+		height: 3px;
+	}
+}

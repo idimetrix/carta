@@ -1,0 +1,11 @@
+.banner {
+	border: 4px solid #26bacd;
+	display: flex;
+
+	img {
+		height: 100%;
+		object-fit: cover;
+		outline: 0;
+		width: 100%;
+	}
+}

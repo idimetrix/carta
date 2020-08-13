@@ -1,0 +1,51 @@
+.avatar {
+	align-items: center;
+	background-color: $gray-500;
+	border-radius: 50%;
+	color: $white;
+	display: inline-flex;
+	font-size: 1rem;
+	height: 48px;
+	justify-content: center;
+	width: 48px;
+}
+
+.avatar img {
+	border-radius: 50%;
+	width: 100%;
+}
+
+.avatar + .avatar-content {
+	display: inline-block;
+	margin-left: 0.75rem;
+}
+
+.avatar-lg {
+	font-size: $font-size-sm;
+	height: 58px;
+	width: 58px;
+}
+
+.avatar-sm {
+	font-size: $font-size-sm;
+	height: 38px;
+	width: 38px;
+}
+
+// Overlapped avatars
+
+.avatar-group {
+	.avatar {
+		border: 2px solid $card-bg;
+		position: relative;
+		z-index: 2;
+
+		&:hover {
+			z-index: 3;
+		}
+	}
+
+	.avatar + .avatar {
+		margin-left: -1rem;
+	}
+}

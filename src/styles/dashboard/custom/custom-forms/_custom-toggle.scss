@@ -1,0 +1,65 @@
+//
+// Custom toggle
+//
+
+.custom-toggle {
+	display: inline-block;
+	height: 1.5rem;
+	position: relative;
+	width: $custom-toggle-width;
+
+	input {
+		display: none;
+
+		&:checked {
+			+ .custom-toggle-slider {
+				border: $custom-control-indicator-border-width solid $custom-control-indicator-checked-border-color;
+
+				&::before {
+					background: $custom-toggle-checked-bg;
+					transform: translateX(1.625rem);
+				}
+			}
+		}
+
+		&:disabled {
+			+ .custom-toggle-slider {
+				border: $custom-control-indicator-border-width solid $custom-control-indicator-disabled-bg;
+			}
+
+			&:checked {
+				+ .custom-toggle-slider {
+					border: $custom-control-indicator-border-width solid $custom-control-indicator-disabled-bg;
+
+					&::before {
+						background-color: lighten($custom-control-indicator-checked-bg, 10%);
+					}
+				}
+			}
+		}
+	}
+}
+
+.custom-toggle-slider {
+	background-color: transparent;
+	border: $custom-control-indicator-border-width solid $input-border-color;
+	border-radius: 34px !important;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	&::before {
+		background-color: $custom-toggle-slider-bg;
+		border-radius: 50% !important;
+		bottom: 2px;
+		content: '';
+		height: 18px;
+		left: 2px;
+		position: absolute;
+		transition: $input-transition;
+		width: 18px;
+	}
+}

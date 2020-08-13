@@ -1,0 +1,185 @@
+.popover {
+	// Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
+	// So reset our font and text properties to avoid inheriting weird values.
+	@include reset-text();
+	@include border-radius($popover-border-radius);
+	@include box-shadow($popover-box-shadow);
+	background-clip: padding-box;
+	background-color: $popover-bg;
+	border: $popover-border-width solid $popover-border-color;
+	display: block;
+	font-size: $popover-font-size;
+	left: 0;
+	max-width: $popover-max-width;
+	position: absolute;
+	top: 0;
+	// Allow breaking very long words so they don't overflow the popover's bounds
+	word-wrap: break-word;
+	z-index: $zindex-popover;
+
+	.arrow {
+		display: block;
+		height: $popover-arrow-height;
+		margin: 0 $border-radius-lg;
+		position: absolute;
+		width: $popover-arrow-width;
+
+		&::before,
+		&::after {
+			border-color: transparent;
+			border-style: solid;
+			content: '';
+			display: block;
+			position: absolute;
+		}
+	}
+}
+
+.bs-popover-top {
+	margin-bottom: $popover-arrow-height;
+
+	.arrow {
+		bottom: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
+	}
+
+	.arrow::before,
+	.arrow::after {
+		border-width: $popover-arrow-height ($popover-arrow-width / 2) 0;
+	}
+
+	.arrow::before {
+		border-top-color: $popover-arrow-outer-color;
+		bottom: 0;
+	}
+
+	.arrow::after {
+		border-top-color: $popover-arrow-color;
+		bottom: $popover-border-width;
+	}
+}
+
+.bs-popover-right {
+	margin-left: $popover-arrow-height;
+
+	.arrow {
+		height: $popover-arrow-width;
+		left: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
+		margin: $border-radius-lg 0; // make sure the arrow does not touch the popover's rounded corners
+		width: $popover-arrow-height;
+	}
+
+	.arrow::before,
+	.arrow::after {
+		border-width: ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2) 0;
+	}
+
+	.arrow::before {
+		border-right-color: $popover-arrow-outer-color;
+		left: 0;
+	}
+
+	.arrow::after {
+		border-right-color: $popover-arrow-color;
+		left: $popover-border-width;
+	}
+}
+
+.bs-popover-bottom {
+	margin-top: $popover-arrow-height;
+
+	.arrow {
+		top: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
+	}
+
+	.arrow::before,
+	.arrow::after {
+		border-width: 0 ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2);
+	}
+
+	.arrow::before {
+		border-bottom-color: $popover-arrow-outer-color;
+		top: 0;
+	}
+
+	.arrow::after {
+		border-bottom-color: $popover-arrow-color;
+		top: $popover-border-width;
+	}
+
+	// This will remove the popover-header's border just below the arrow
+	.popover-header::before {
+		border-bottom: $popover-border-width solid $popover-header-bg;
+		content: '';
+		display: block;
+		left: 50%;
+		margin-left: ($popover-arrow-width / -2);
+		position: absolute;
+		top: 0;
+		width: $popover-arrow-width;
+	}
+}
+
+.bs-popover-left {
+	margin-right: $popover-arrow-height;
+
+	.arrow {
+		height: $popover-arrow-width;
+		margin: $border-radius-lg 0; // make sure the arrow does not touch the popover's rounded corners
+		right: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
+		width: $popover-arrow-height;
+	}
+
+	.arrow::before,
+	.arrow::after {
+		border-width: ($popover-arrow-width / 2) 0 ($popover-arrow-width / 2) $popover-arrow-height;
+	}
+
+	.arrow::before {
+		border-left-color: $popover-arrow-outer-color;
+		right: 0;
+	}
+
+	.arrow::after {
+		border-left-color: $popover-arrow-color;
+		right: $popover-border-width;
+	}
+}
+
+.bs-popover-auto {
+	&[x-placement^='top'] {
+		@extend .bs-popover-top;
+	}
+
+	&[x-placement^='right'] {
+		@extend .bs-popover-right;
+	}
+
+	&[x-placement^='bottom'] {
+		@extend .bs-popover-bottom;
+	}
+
+	&[x-placement^='left'] {
+		@extend .bs-popover-left;
+	}
+}
+
+// Offset the popover to account for the popover arrow
+.popover-header {
+	$offset-border-width: calc(#{$border-radius-lg} - #{$popover-border-width});
+	@include border-top-radius($offset-border-width);
+	background-color: $popover-header-bg;
+	border-bottom: $popover-border-width solid darken($popover-header-bg, 5%);
+	color: $popover-header-color;
+	font-size: $font-size-base;
+	margin-bottom: 0; // Reset the default from Reboot
+	padding: $popover-header-padding-y $popover-header-padding-x;
+
+	&:empty {
+		display: none;
+	}
+}
+
+.popover-body {
+	color: $popover-body-color;
+	padding: $popover-body-padding-y $popover-body-padding-x;
+}

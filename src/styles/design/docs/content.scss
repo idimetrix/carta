@@ -1,0 +1,374 @@
+.docs {
+	background: #fff;
+
+	h6 {
+		font-size: 1rem;
+		font-weight: $font-weight-bold;
+	}
+}
+
+.ct-content {
+	order: 1;
+
+	> h2[id],
+	> h3[id],
+	> h4[id] {
+		pointer-events: none;
+
+		> div,
+		> a {
+			pointer-events: auto;
+		}
+
+		&::before {
+			content: '';
+			display: block;
+			height: 6rem;
+			margin-top: -6rem;
+			visibility: hidden;
+		}
+	}
+
+	> table {
+		margin-bottom: 1rem;
+		max-width: 100%;
+		width: 100%;
+
+		@include media-breakpoint-down(md) {
+			display: block;
+			-ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
+			overflow-x: auto;
+
+			&.table-bordered {
+				border: 0;
+			}
+		} // Cells
+		> thead,
+		> tbody,
+		> tfoot {
+			> tr {
+				> th,
+				> td {
+					border: 1px solid $table-border-color;
+					padding: $table-cell-padding;
+					vertical-align: top;
+
+					> p:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		} // Prevent breaking of code (e.g., Grunt tasks list)
+		td:first-child > code {
+			white-space: nowrap;
+		}
+	}
+}
+
+//
+// Docs sections
+//
+.ct-content {
+	@include media-breakpoint-up(lg) {
+		> ul,
+		> ol,
+		> p {
+			max-width: 80%;
+		}
+	}
+
+	> h2:not(:first-child) {
+		font-size: 1.5rem;
+		font-weight: $font-weight-bold;
+		margin-top: 3rem;
+	}
+
+	> h3 {
+		font-size: 1.25rem;
+		font-weight: $font-weight-bold;
+		margin-top: 2.5rem;
+	}
+
+	> ul li,
+	> ol li {
+		margin-bottom: 0.25rem;
+	}
+}
+
+.ct-page-title {
+	border-left: 2px solid $ct-primary;
+	margin-bottom: 1.5rem;
+	padding-left: 1.25rem;
+}
+
+.ct-title {
+	font-weight: 300;
+	margin-bottom: 0.5rem;
+	margin-top: 1rem;
+
+	@include media-breakpoint-up(sm) {
+		font-size: 1.5rem;
+		font-weight: $font-weight-bold;
+	}
+}
+
+.ct-lead {
+	color: rgb(59, 69, 78);
+	font-weight: 500;
+
+	@include media-breakpoint-up(sm) {
+		font-size: 0.875rem;
+		margin-bottom: 1rem;
+		max-width: 80%;
+	}
+}
+
+.ct-text-purple {
+	color: $ct-primary;
+}
+
+.ct-text-purple-bright {
+	color: $ct-primary-bright;
+}
+
+// Docs code example tabs
+.ct-tabs-example {
+	.nav-link i {
+		margin-right: 5px;
+	}
+}
+
+// Color swatches
+.color-swatch {
+	background-color: #f4f5f7;
+	border-radius: 0.25rem;
+	margin: 1rem 0;
+}
+
+.color-swatch::after {
+	clear: both;
+	content: ' ';
+	display: table;
+}
+
+.color-swatch-header {
+	border: 1px solid transparent;
+	border-radius: 0.25rem 0.25rem 0 0;
+	height: 0;
+	padding-bottom: 50%;
+	position: relative;
+}
+
+.color-swatch-header.is-light {
+	border-color: #c1c7d0;
+}
+
+.color-swatch-header .pass-fail {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.color-swatch-header .pass-fail-item-wrap {
+	float: left;
+	left: 50%;
+	position: relative;
+	transform: translateX(-50%);
+}
+
+.color-swatch-header .pass-fail-item-group {
+	display: inline-block;
+	padding: 0 5px;
+}
+
+.color-swatch-header .pass-fail-item {
+	display: inline-block;
+	float: left;
+	padding: 2px;
+	text-align: center;
+}
+
+.color-swatch-header .pass-fail-item.white .example {
+	color: #fff;
+}
+
+.color-swatch-header .pass-fail-item.small .example {
+	font-size: 10px;
+}
+
+.color-swatch-header .pass-fail-item .lozenge {
+	background: #000;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	line-height: 10px;
+	padding: 2px 4px;
+	text-transform: uppercase;
+}
+
+.color-swatch-body {
+	float: left;
+	left: 50%;
+	padding: 10px 0;
+	position: relative;
+	transform: translateX(-50%);
+}
+
+.color-swatch-body .prop-item-wrap {
+	float: left;
+	min-width: 65px;
+	padding: 0 15px;
+}
+
+.color-swatch-body .prop-item {
+	padding: 15px 0;
+}
+
+.color-swatch-body .prop-item .label {
+	color: #62748c;
+	font-size: 11px;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+
+.color-swatch-body .prop-item .value {
+	font-size: 14px;
+}
+
+.table-colors {
+	font-size: 16px;
+	font-weight: 600;
+	width: 100%;
+}
+
+.table-colors td,
+.table-colors:first-child td,
+.table-colors td:first-child,
+.table-colors:first-child td:first-child,
+.table-colors td:last-child,
+.table-colors:first-child td:last-child {
+	background: $ct-primary-light;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 10px;
+}
+
+.table-colors tr:last-child td,
+.table-colors:first-child tr:last-child td {
+	border-bottom: 0;
+}
+
+.table-colors td:nth-child(1),
+.table-colors:first-child td:nth-child(1) {
+	line-height: 40px;
+}
+
+.table-colors .swatch,
+.table-colors:first-child .swatch {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	display: inline-block;
+	float: left;
+	height: 40px;
+	margin-right: 20px;
+	width: 40px;
+}
+
+.table-colors .swatch.is-light,
+.table-colors:first-child .swatch.is-light {
+	border-color: #c1c7d0;
+}
+
+.table-colors .lozenge,
+.table-colors:first-child .lozenge {
+	background: #97a0af;
+	border-radius: 4px;
+	color: #042a53;
+	display: inline-block;
+	float: left;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	line-height: 10px;
+	margin: 5px 10px 0 0;
+	padding: 2px 4px;
+	text-transform: uppercase;
+}
+
+#tags-component.tab-pane {
+	.choices__inner {
+		height: 60px;
+	}
+}
+
+.highlight pre {
+	background: #f5f7ff;
+	border-radius: 0.25rem;
+	color: #5e6687;
+	direction: ltr;
+	font-family: Consolas, Menlo, Monaco, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
+		'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', Courier, monospace;
+	font-size: 14px;
+	hyphens: none;
+	line-height: 1.375;
+	margin: 0;
+	overflow: auto;
+	padding: 1.25rem;
+	tab-size: 4;
+	text-align: left;
+	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
+
+	code {
+		color: #5e6687;
+		font-size: 87.5%;
+		word-break: break-word;
+	}
+
+	pre code {
+		color: inherit;
+		font-size: inherit;
+		word-break: normal;
+	}
+
+	code,
+	kbd,
+	pre,
+	samp {
+		font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+		font-size: 1em;
+	}
+
+	.nt {
+		color: #3d8fd1;
+	}
+
+	.na {
+		color: #c76b29;
+	}
+
+	.s,
+	.token.control,
+	.token.directive,
+	.token.keyword,
+	.token.unit {
+		color: #ac9739;
+	}
+
+	.token.punctuation {
+		color: #5e6687;
+	}
+}
+
+.btn-clipboard {
+	top: 3.5rem;
+}
+
+.offline-doc .page-header {
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+}

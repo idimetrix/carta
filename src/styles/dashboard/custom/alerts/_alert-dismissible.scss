@@ -1,0 +1,39 @@
+//
+// Dismissible alert
+//
+
+.alert-dismissible {
+	.close {
+		color: rgba($white, 0.6);
+		opacity: 1;
+		padding: 0;
+		right: $alert-padding-x;
+		top: 50%;
+		transform: translateY(-50%);
+
+		@include media-breakpoint-down(xs) {
+			right: 0.5rem;
+			top: 1rem;
+		}
+
+		&:hover,
+		&:focus {
+			color: rgba($white, 0.9);
+			opacity: 1 !important;
+		}
+
+		> span:not(.sr-only) {
+			background-color: transparent;
+			color: rgba($white, 0.6);
+			font-size: 1.5rem;
+		}
+
+		&:hover,
+		&:focus {
+			> span:not(.sr-only) {
+				background-color: transparent;
+				color: rgba($white, 0.9);
+			}
+		}
+	}
+}

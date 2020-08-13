@@ -1,0 +1,71 @@
+.input-group {
+	border-radius: $input-border-radius;
+	box-shadow: $input-box-shadow;
+	transition: $transition-base;
+
+	.form-control {
+		box-shadow: none;
+
+		&:not(:first-child) {
+			border-left: 0;
+			padding-left: 0;
+		}
+
+		&:not(:last-child) {
+			border-right: 0;
+			padding-right: 0;
+		}
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
+	.input-group-prepend {
+		margin-right: 0;
+
+		.input-group-text {
+			border-right: 0;
+		}
+	}
+}
+
+.input-group-text {
+	transition: $transition-base;
+}
+
+.input-group-alternative {
+	border: 0;
+	box-shadow: $input-alternative-box-shadow;
+	transition: box-shadow 0.15s ease;
+
+	.form-control,
+	.input-group-text {
+		border: 0;
+		box-shadow: none;
+	}
+}
+
+.focused {
+	.input-group-alternative {
+		box-shadow: $input-focus-alternative-box-shadow !important;
+	}
+}
+
+// .focus class is applied dinamycally from theme.js
+
+.focused {
+	.input-group {
+		box-shadow: $input-focus-box-shadow;
+	}
+
+	.input-group-text {
+		background-color: $input-group-addon-focus-bg;
+		border-color: $primary;
+		color: $input-group-addon-focus-color;
+	}
+
+	.form-control {
+		border-color: $primary;
+	}
+}

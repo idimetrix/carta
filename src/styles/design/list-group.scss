@@ -1,0 +1,40 @@
+// Space list items
+
+.list-group-space {
+	.list-group-item {
+		@include border-radius($list-group-border-radius);
+		margin-bottom: 1.5rem;
+	}
+}
+
+// List group components
+
+.list-group-img {
+	border-radius: 50%;
+	height: 3rem;
+	margin: -0.1rem 1.2rem 0 -0.2rem;
+	vertical-align: top;
+	width: 3rem;
+}
+
+.list-group-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.list-group-content > p {
+	color: $gray-500;
+	line-height: 1.5;
+	margin: 0.2rem 0 0;
+}
+
+.list-group-heading {
+	color: $gray-800;
+	font-size: $font-size-base;
+}
+
+.list-group-heading > small {
+	color: $gray-500;
+	float: right;
+	font-weight: 500;
+}

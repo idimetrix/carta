@@ -1,0 +1,42 @@
+//
+// Icon shape
+//
+
+.icon-shape {
+	align-items: center;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	padding: 12px;
+	text-align: center;
+
+	i,
+	svg {
+		font-size: 1.25rem;
+	}
+
+	&.icon-lg {
+		i,
+		svg {
+			font-size: 1.625rem;
+		}
+	}
+
+	&.icon-sm {
+		i,
+		svg {
+			font-size: 0.875rem;
+		}
+	}
+
+	svg {
+		height: 30px;
+		width: 30px;
+	}
+}
+
+@each $color, $value in $theme-colors {
+	.icon-shape-#{$color} {
+		@include icon-shape-variant(theme-color($color));
+	}
+}

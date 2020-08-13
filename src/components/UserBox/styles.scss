@@ -1,0 +1,27 @@
+.dropzone {
+	align-content: center;
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+
+	img {
+		display: flex;
+		height: 100%;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	a {
+		display: none;
+		opacity: 0.5;
+		position: absolute;
+	}
+
+	&:hover {
+		a {
+			display: flex;
+		}
+	}
+}

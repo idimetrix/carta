@@ -1,0 +1,16 @@
+//
+// Card stats
+//
+
+.card-stats {
+	.card-body {
+		padding: 1rem 1.5rem;
+	}
+
+	.card-status-bullet {
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate(50%, -50%);
+	}
+}

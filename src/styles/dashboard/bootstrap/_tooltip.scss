@@ -1,0 +1,120 @@
+// Base class
+.tooltip {
+	// Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
+	// So reset our font and text properties to avoid inheriting weird values.
+	@include reset-text();
+	display: block;
+	font-size: $tooltip-font-size;
+	margin: $tooltip-margin;
+	opacity: 0;
+	position: absolute;
+	// Allow breaking very long words so they don't overflow the tooltip's bounds
+	word-wrap: break-word;
+	z-index: $zindex-tooltip;
+
+	&.show {
+		opacity: $tooltip-opacity;
+	}
+
+	.arrow {
+		display: block;
+		height: $tooltip-arrow-height;
+		position: absolute;
+		width: $tooltip-arrow-width;
+
+		&::before {
+			border-color: transparent;
+			border-style: solid;
+			content: '';
+			position: absolute;
+		}
+	}
+}
+
+.bs-tooltip-top {
+	padding: $tooltip-arrow-height 0;
+
+	.arrow {
+		bottom: 0;
+
+		&::before {
+			border-top-color: $tooltip-arrow-color;
+			border-width: $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
+			top: 0;
+		}
+	}
+}
+
+.bs-tooltip-right {
+	padding: 0 $tooltip-arrow-height;
+
+	.arrow {
+		height: $tooltip-arrow-width;
+		left: 0;
+		width: $tooltip-arrow-height;
+
+		&::before {
+			border-right-color: $tooltip-arrow-color;
+			border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
+			right: 0;
+		}
+	}
+}
+
+.bs-tooltip-bottom {
+	padding: $tooltip-arrow-height 0;
+
+	.arrow {
+		top: 0;
+
+		&::before {
+			border-bottom-color: $tooltip-arrow-color;
+			border-width: 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+			bottom: 0;
+		}
+	}
+}
+
+.bs-tooltip-left {
+	padding: 0 $tooltip-arrow-height;
+
+	.arrow {
+		height: $tooltip-arrow-width;
+		right: 0;
+		width: $tooltip-arrow-height;
+
+		&::before {
+			border-left-color: $tooltip-arrow-color;
+			border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+			left: 0;
+		}
+	}
+}
+
+.bs-tooltip-auto {
+	&[x-placement^='top'] {
+		@extend .bs-tooltip-top;
+	}
+
+	&[x-placement^='right'] {
+		@extend .bs-tooltip-right;
+	}
+
+	&[x-placement^='bottom'] {
+		@extend .bs-tooltip-bottom;
+	}
+
+	&[x-placement^='left'] {
+		@extend .bs-tooltip-left;
+	}
+}
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+	@include border-radius($tooltip-border-radius);
+	background-color: $tooltip-bg;
+	color: $tooltip-color;
+	max-width: $tooltip-max-width;
+	padding: $tooltip-padding-y $tooltip-padding-x;
+	text-align: center;
+}

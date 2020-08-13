@@ -1,0 +1,40 @@
+.page-item {
+	&.active .page-link {
+		box-shadow: $pagination-active-box-shadow;
+	}
+
+	.page-link,
+	span {
+		align-items: center;
+		border-radius: 50% !important;
+		display: flex;
+		font-size: $font-size-sm;
+		height: 36px;
+		justify-content: center;
+		margin: 0 3px;
+		padding: 0;
+		width: 36px;
+	}
+}
+
+.pagination-lg {
+	.page-item {
+		.page-link,
+		span {
+			height: 46px;
+			line-height: 46px;
+			width: 46px;
+		}
+	}
+}
+
+.pagination-sm {
+	.page-item {
+		.page-link,
+		span {
+			height: 30px;
+			line-height: 30px;
+			width: 30px;
+		}
+	}
+}
