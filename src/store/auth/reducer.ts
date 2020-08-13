@@ -39,12 +39,14 @@ export function reducer(state: IAuthState = initialState, action: any): IAuthSta
 			localStorage.setItem('token', JSON.stringify(action.payload));
 			localStorage.setItem('user', JSON.stringify(action.payload));
 			localStorage.setItem('details', JSON.stringify(action.payload));
+
 			return {
 				...state,
 				loading: false,
 				error: null,
 				token: JSON.stringify(action.payload),
-				user: action.payload.user as IUser,
+				user: action.payload as IUser,
+				details: action.payload as IDetails,
 			};
 		case AuthorizationActionsTypes.AUTHORIZATION_ACTION_FAILURE:
 			return { ...state, loading: false, error: action.payload };

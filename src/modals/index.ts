@@ -9,5 +9,4 @@ export { default as AccessModal, IAccessProps, IAccessAction } from './AccessMod
 
 export { default as ChallengeModal, IChallengeProps, IChallengeAction } from './ChallengeModal';
 
-
 export type IModalType = 'alert' | 'confirm' | 'prompt' | 'form' | 'access' | 'challenge' | 'component' | 'user';

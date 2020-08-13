@@ -79,6 +79,8 @@ class Root extends Component<IProps, IState> {
 		const { user }: IProps = this.props;
 		const { root }: IState = this.state;
 
+		console.log('user', user);
+
 		return root ? (
 			<Provider store={this.props.store}>
 				<AlertModal name="alert" />

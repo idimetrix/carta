@@ -125,7 +125,7 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(png|gif|jpg|jpeg)$/,
+				test: /\.(png|gif|jpg|jpeg|ico)$/,
 				use: [
 					{
 						loader: 'file-loader',
@@ -218,7 +218,8 @@ module.exports = {
 		new ImageMinPlugin({ test: /\.(jpg|jpeg|png|gif)$/i }),
 		new HtmlWebpackPlugin({
 			template: '../public/index.html',
-			minify: {
+      favicon: '../public/favicon.ico',
+      minify: {
 				minifyJS: true,
 				minifyCSS: true,
 				removeComments: true,
@@ -236,7 +237,7 @@ module.exports = {
 			patterns: [
 				{
 					from: path.resolve(__dirname, 'src', 'i18n', 'locales'),
-					to: path.resolve(__dirname, isProduction ? 'build' : 'public', 'locales'),
+					to: path.resolve(__dirname, isProduction ? 'dist' : 'public', 'locales'),
 					toType: 'dir',
 				},
 			],
