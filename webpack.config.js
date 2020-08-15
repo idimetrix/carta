@@ -218,8 +218,8 @@ module.exports = {
 		new ImageMinPlugin({ test: /\.(jpg|jpeg|png|gif)$/i }),
 		new HtmlWebpackPlugin({
 			template: '../public/index.html',
-      favicon: '../public/favicon.ico',
-      minify: {
+			favicon: '../public/favicon.ico',
+			minify: {
 				minifyJS: true,
 				minifyCSS: true,
 				removeComments: true,
